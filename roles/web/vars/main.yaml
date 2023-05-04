@@ -1,0 +1,7 @@
+package_name: nginx
+template_name: index.html.j2
+message: hello from iti
+file_list:
+  - file.css
+  - file.js
+service_name: nginx

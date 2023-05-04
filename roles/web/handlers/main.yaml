@@ -1,0 +1,17 @@
+- name: Copy a file from controller to host
+  template:
+    src: "{{ template_name }}"
+    dest: /var/www/html/
+  notify: Copy a list of files from controller to host
+
+- name: Copy a list of files from controller to host
+  copy:
+    src: "{{ item }}"
+    dest: /var/www/html/
+  loop: "{{ file_list }}"
+  notify: restart the service
+
+- name: restart the service
+  sysvinit:
+    name: "{{ service_name }}"
+    state: restarted

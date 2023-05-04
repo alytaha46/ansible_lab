@@ -1,0 +1,6 @@
+- name: Install the package
+  package:
+    name: "{{ package_name }}"
+    state: latest
+  notify: Copy a file from controller to host
+
